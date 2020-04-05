@@ -8,11 +8,15 @@ import { UserComponent } from './Pages/users/user/user.component';
 import { EditAccountComponent } from './Pages/acoounts/edit-account/edit-account.component';
 import { EditUserComponent } from './Pages/users/edit-user.component.ts/edit-user.component';
 import { NotFound404Component } from './Pages/notfound-404/notfound-404.component';
+import { AuthGuard } from './sevices/auth-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent, children: [
+  {path: 'users',
+  //  canActivate: [AuthGuard] ,
+  canActivateChild: [AuthGuard],
+   component: UsersComponent, children: [
     {path: ':id', component: UserComponent},
     {path: ':id/edit', component: EditUserComponent},
     // {path: 'users/:id/:name', component: UserComponent},
