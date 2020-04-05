@@ -1,3 +1,4 @@
+import { NotFound404Module } from './notfound-404/notfound-404.module';
 import { UsersModule } from './users/users.module';
 import { NgModule } from '@angular/core';
 
@@ -14,9 +15,10 @@ const MODULES = [
   UsersModule,
   AccountsModule,
   EditUserModule,
-  UserModule
+  UserModule,
+  NotFound404Module
+];
 
-]
 @NgModule({
   imports: [CommonModule, ...MODULES],
   exports: [],

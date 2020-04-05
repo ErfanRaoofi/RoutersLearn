@@ -7,6 +7,7 @@ import { AccountsComponent } from './Pages/acoounts/accounts.component';
 import { UserComponent } from './Pages/users/user/user.component';
 import { EditAccountComponent } from './Pages/acoounts/edit-account/edit-account.component';
 import { EditUserComponent } from './Pages/users/edit-user.component.ts/edit-user.component';
+import { NotFound404Component } from './Pages/notfound-404/notfound-404.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,8 @@ const routes: Routes = [
   ]},
   {path: 'accounts', component: AccountsComponent},
   {path: 'accounts/:id/edit', component: EditAccountComponent},
+  {path: 'not-found', component: NotFound404Component},
+  {path: '**', redirectTo: '/not-found'},
 ];
 
 @NgModule({
