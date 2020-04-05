@@ -5,13 +5,15 @@ import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
 import { AccountsModule } from './acoounts/accounts.module';
 import { EditUserModule } from './users/edit-user.component.ts/edit-user.module';
+import { UserModule } from './users/user/user.module';
 
 
 const MODULES = [
   HomeModule,
   UsersModule,
   AccountsModule,
-  EditUserModule
+  EditUserModule,
+  UserModule
 
 ]
 @NgModule({
