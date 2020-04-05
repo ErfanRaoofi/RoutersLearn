@@ -1,1 +1,10 @@
 <h1>Accounts</h1>
+<hr>
+
+<ul>
+    <li *ngFor="let u of users">
+        <a [routerLink]="['/accounts', u.id, 'edit']" [queryParams]="{allowEdit: 1, key2: true}" fragment="paragraph1">{{ u.name }}</a>
+    </li>
+</ul>
+
+<button class="btn btn-danger" (click)="onClick(1)">Edit Account</button>
