@@ -1,3 +1,17 @@
 <h2>Edite User</h2>
-
-<a routerLink="/accounts">Go to accounts</a>
+<hr>
+<div class="container" *ngIf="!allowEdit">You Can not Modify the User</div>
+<div class="container" *ngIf="allowEdit">
+    <div class="row">
+        <div class="col">
+            <input [(ngModel)]="userId" type="text" class="form-control">
+        </div>
+        <div class="col">
+            <input [(ngModel)]="userName" type="text" class="form-control">
+        </div>
+    </div>
+    <div class="row" style="margin-top: 2em;">
+        <button class="btn btn-success" (click)="onSave()">Save Changes</button>
+    </div>
+</div>
+<!-- <a routerLink="/accounts">Go to accounts</a> -->

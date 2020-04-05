@@ -15,6 +15,6 @@ export class UsersComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.users = this.userService.getUsers() ;
    }
 }

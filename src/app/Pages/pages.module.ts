@@ -6,6 +6,7 @@ import { HomeModule } from './home/home.module';
 import { AccountsModule } from './acoounts/accounts.module';
 import { EditUserModule } from './users/edit-user.component.ts/edit-user.module';
 import { UserModule } from './users/user/user.module';
+import { UserService } from './users/user.sevice';
 
 
 const MODULES = [
@@ -20,6 +21,6 @@ const MODULES = [
   imports: [CommonModule, ...MODULES],
   exports: [],
   declarations: [],
-  providers: [],
+  providers: [UserService],
 })
 export class PageModule { }

@@ -6,13 +6,16 @@ import { UsersComponent } from './Pages/users/users.component';
 import { AccountsComponent } from './Pages/acoounts/accounts.component';
 import { UserComponent } from './Pages/users/user/user.component';
 import { EditAccountComponent } from './Pages/acoounts/edit-account/edit-account.component';
+import { EditUserComponent } from './Pages/users/edit-user.component.ts/edit-user.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'users', component: UsersComponent},
-  {path: 'users/:id', component: UserComponent},
-  // {path: 'users/:id/:name', component: UserComponent},
+  {path: 'users', component: UsersComponent, children: [
+    {path: ':id', component: UserComponent},
+    {path: ':id/edit', component: EditUserComponent},
+    // {path: 'users/:id/:name', component: UserComponent},
+  ]},
   {path: 'accounts', component: AccountsComponent},
   {path: 'accounts/:id/edit', component: EditAccountComponent},
 ];

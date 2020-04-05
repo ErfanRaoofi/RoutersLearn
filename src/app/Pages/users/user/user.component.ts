@@ -1,6 +1,6 @@
 import { UserService } from './../user.sevice';
 import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from 'rxjs';
 
 import { IUser } from "./user";
@@ -17,7 +17,7 @@ export class UserComponent implements OnInit, OnDestroy {
   users: IUser[] = [{ id: 0, name: "" }];
   user: IUser;
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {}
+  constructor(private router: Router, private route: ActivatedRoute, private userService: UserService) {}
 
   ngOnInit() {
     // first
@@ -34,12 +34,24 @@ export class UserComponent implements OnInit, OnDestroy {
     // });
 
     // fourth dynamic shows
-    this.users = this.userService.getUsers();
-    this.user = this.userService.getuser(+this.route.snapshot.params.id);
+    // this.users = this.userService.getUsers();
+    // this.user = this.userService.getuser(+this.route.snapshot.params.id);
 
+    // fifth child in routing
+    this.userSubcription = this.route.params.subscribe(
+      (params: Params) => {
+        this.user = this.userService.getuser(+params.id);
+      }
+    );
+  }
+
+  editUser() {
+    this.router.navigate(['edit'], {relativeTo: this.route, queryParamsHandling: 'preserve'});
   }
 
   ngOnDestroy(): void {
-    // this.userSubcription.unsubscribe();
+     this.userSubcription.unsubscribe();
   }
+
+
 }
